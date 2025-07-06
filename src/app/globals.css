@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 300 14% 11%; /* #211a1d */
+    --foreground: 0 0% 100%; /* white */
+    
+    /* Primary color - Purple */
+    --primary: 261 88% 53%; /* #6320ee */
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary color - Light Purple */
+    --secondary: 245 100% 73%; /* #8075ff */
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Accent colors */
+    --accent: 261 88% 53%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Other UI colors */
+    --border: 261 88% 53%;
+    --input: 261 88% 53%;
+    --ring: 261 88% 53%;
+    
+    /* Card colors */
+    --card: 300 14% 11%;
+    --card-foreground: 0 0% 100%;
+    
+    /* Popover colors */
+    --popover: 300 14% 11%;
+    --popover-foreground: 0 0% 100%;
+    
+    /* Muted colors */
+    --muted: 261 88% 20%;
+    --muted-foreground: 261 88% 80%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Chart colors */
+    --chart-1: 261 88% 53%;
+    --chart-2: 245 100% 73%;
+    --chart-3: 261 88% 73%;
+    --chart-4: 245 100% 83%;
+    --chart-5: 261 88% 83%;
+    
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 300 14% 11%;
+    --foreground: 0 0% 100%;
+    
+    --primary: 261 88% 53%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 245 100% 73%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 261 88% 53%;
+    --accent-foreground: 0 0% 100%;
+    
+    --border: 261 88% 30%;
+    --input: 261 88% 30%;
+    --ring: 261 88% 53%;
+    
+    --card: 300 14% 11%;
+    --card-foreground: 0 0% 100%;
+    
+    --popover: 300 14% 11%;
+    --popover-foreground: 0 0% 100%;
+    
+    --muted: 261 88% 20%;
+    --muted-foreground: 261 88% 80%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+
+.custom-payment-button {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Hide PayPal logo and text */
+.paypal-button-label-container {
+  display: none !important;
+}
+
+/* Custom button style */
+.custom-payment-button .paypal-buttons {
+  border-radius: 6px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Hide "Powered by PayPal" */
+.paypal-powered-by {
+  display: none !important;
+}
+
+.paypal-button-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.paypal-button-container .paypal-buttons {
+  min-height: 55px;
+}
+
+.paypal-button-container .paypal-buttons-layout-vertical {
+  min-width: 100% !important;
+}
+
+/* Adjust PayPal button colors to match theme */
+.paypal-button-container .paypal-button-number-0 {
+  background-color: #6320ee !important;
+}
+
+.paypal-button-container .paypal-button-number-1 {
+  background-color: #8075ff !important;
+}
+
+/* Hide "Powered by PayPal" */
+.paypal-powered-by {
+  display: none !important;
+}
+
+/* Force hide PayLater button */
+.paypal-button[data-funding-source="paylater"] {
+  display: none !important;
+}
+
+/* Customize PayPal button colors */
+.paypal-button[data-funding-source="paypal"] {
+  background-color: #6320ee !important;
+}
+
+.paypal-button[data-funding-source="card"] {
+  background-color: #8075ff !important;
+}
+
+/* Adjust button text color */
+.paypal-button-text {
+  color: white !important;
+}
+
