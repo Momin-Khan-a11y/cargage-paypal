@@ -13,6 +13,7 @@ interface PaypalPayProps {
     name: string;
     vin: string;
     onSuccess: (details: any) => void;
+    onFormSubmit: () => void;
 }
 
 export default function PaypalPay({ amount, email, name, vin, onSuccess }: PaypalPayProps) {
