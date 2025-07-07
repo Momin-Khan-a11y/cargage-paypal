@@ -125,7 +125,7 @@ export async function POST(request: NextRequest) {
 
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: [email, "aurabay2025@gmail.com"],
+      to: [email, "petermarshall865@gmail.com"],
       subject: "Payment Confirmation - Vehicle History Report",
       html: emailTemplate,
     });
