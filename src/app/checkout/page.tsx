@@ -82,8 +82,8 @@ function page() {
           </svg>
         </div>
       </div>
-      <div className='w-full flex flex-col text-center items-center justify-center gap-8 pt-20'>
-        <h1 className='text-3xl font-bold text-white max-w-xl text-center'>
+      <div className='w-full flex flex-col text-center items-center justify-center gap-8 pt-20 px-5'>
+        <h1 className='text-xl sm:text-3xl font-bold text-white max-w-xl text-center'>
           Get Your Vehicle History Report Now For Just $39.99
         </h1>
         
