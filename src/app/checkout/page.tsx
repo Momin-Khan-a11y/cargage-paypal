@@ -32,7 +32,7 @@ function page() {
       </div>
     }>
       <div className=' w-full bg-gradient-to-r from-primary to-secondary' >
-        <div className='w-full flex flex-col gap-8 items-center justify-center py-40' data-aos="fade-down">
+        <div className='w-full flex flex-col gap-8 items-center justify-center py-40 px-4' data-aos="fade-down">
           <VIN />
           {/* Uncomment the following line if you want to display a message about proceeding to checkout */}
           {/* <p className='text-white text-lg max-w-xl text-center' data-aos="fade-up">
