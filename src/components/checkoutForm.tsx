@@ -88,7 +88,7 @@ export function CheckoutForm() {
         throw new Error("Failed to submit form");
       }
 
-      toast.success("Form submitted successfully");
+      // toast.success("Form submitted successfully");
       setShowPaypal(true); // Show Paypal payment modal
     } catch (error) {
       toast.error("Failed to submit form");
@@ -113,7 +113,7 @@ export function CheckoutForm() {
         throw new Error("Failed to submit form");
       }
 
-      toast.success("Form submitted successfully");
+      // toast.success("Form submitted successfully");
     } catch (error) {
       toast.error("Failed to submit form");
     }
@@ -236,7 +236,9 @@ export function CheckoutForm() {
                 <PaypalPay
                   amount={amount.toString()}
                   email={watch('email')}
-                  name={watch('firstName')}
+                  FirstName={watch('firstName')}
+                  LastName={watch('lastName')}
+                  zipCode={watch('postalCode')}
                   vin={VIN}
                   onSuccess={handlePaymentSuccess}
                   onFormSubmit={handleFormSubmit} // Pass the new prop

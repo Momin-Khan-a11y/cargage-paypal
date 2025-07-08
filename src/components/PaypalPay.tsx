@@ -10,13 +10,15 @@ if (!process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID) {
 interface PaypalPayProps {
     amount: string;
     email: string;
-    name: string;
+    FirstName: string;
+    LastName: string;
+    zipCode: string;
     vin: string;
     onSuccess: (details: any) => void;
     onFormSubmit: () => void;
 }
 
-export default function PaypalPay({ amount, email, name, vin, onSuccess }: PaypalPayProps) {
+export default function PaypalPay({ amount, email, FirstName, LastName, vin, zipCode, onSuccess }: PaypalPayProps) {
     const paypalRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -62,6 +64,14 @@ export default function PaypalPay({ amount, email, name, vin, onSuccess }: Paypa
                                             },
                                         },
                                     ],
+                                    application_context: {
+                                        shipping_preference: "NO_SHIPPING" // hides shipping address
+                                    },
+                                    payer: {
+                                        name: { given_name: FirstName, surname: LastName },
+                                        address: { postal_code: zipCode, country_code: "US" }, 
+                                        email_address: email,
+                                    },
                                 });
                             }}
                             onApprove={(data, actions) => {

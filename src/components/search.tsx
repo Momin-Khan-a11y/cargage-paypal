@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import { Button } from './ui/button'
-import { Search } from 'lucide-react'
 import { Input } from './ui/input'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -27,7 +26,8 @@ function SearchSec() {
     const handleSearch = () => {
         if (validateVIN(searchQuery)) {
             // Redirect to category page with the search query
-            router.push(`/recordfound?vin=${encodeURIComponent(searchQuery)}`);
+            // router.push(`/recordfound?vin=${encodeURIComponent(searchQuery)}`);
+            router.push(`/checkout?vin=${encodeURIComponent(searchQuery)}`);
         }
     };
 
