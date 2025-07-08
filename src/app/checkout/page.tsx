@@ -9,7 +9,7 @@ function VIN() {
   const vinParams = useSearchParams();
   const VIN = vinParams.get("vin") || "";
   return (
-          <h1 className='text-4xl font-bold text-white max-w-xl text-center' data-aos="fade-down">
+          <h1 className='text-xl sm:text-4xl font-bold text-white max-w-xl text-center' data-aos="fade-down">
             Congrats! We've found the VHR for the VIN: {VIN}
           </h1>
   )
