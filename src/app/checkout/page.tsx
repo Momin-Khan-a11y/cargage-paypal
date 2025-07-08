@@ -5,10 +5,17 @@ import AOS from "aos";
 import { CheckoutForm } from '@/components/checkoutForm';
 import { useSearchParams } from 'next/navigation';
 
-
-function page() {
+function VIN() {
   const vinParams = useSearchParams();
   const VIN = vinParams.get("vin") || "";
+  return (
+          <h1 className='text-4xl font-bold text-white max-w-xl text-center' data-aos="fade-down">
+            Congrats! We've found the VHR for the VIN: {VIN}
+          </h1>
+  )
+} 
+
+function page() {
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -26,7 +33,8 @@ function page() {
     }>
       <div className=' w-full bg-gradient-to-r from-primary to-secondary' >
         <div className='w-full flex flex-col gap-8 items-center justify-center py-40' data-aos="fade-down">
-          <h1 className='text-4xl font-bold text-white max-w-xl text-center' data-aos="fade-down">Congrats! We've found the VHR for the VIN: {VIN}</h1>
+          <VIN />
+          {/* Uncomment the following line if you want to display a message about proceeding to checkout */}
           {/* <p className='text-white text-lg max-w-xl text-center' data-aos="fade-up">
             Please proceed to checkout to purchase the Vehicle History Report (VHR) for the VIN: {VIN}.
           </p> */}
