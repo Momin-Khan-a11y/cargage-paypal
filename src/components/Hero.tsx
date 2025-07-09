@@ -13,10 +13,10 @@ function Hero() {
                     </h1>
                     <p className="text-md sm:text-xl mb-8 text-white shadow-lg tracking-wide">Get detailed vehicle history reports in minutes</p>
                     <div className="flex flex-row gap-4 justify-center font-bold">
-                        <Link href='/#get-report' className='bg-primary px-4 md:px-6 py-2 md:py-3 text-white hover:bg-primary/90 shadow-lg shadow-primary/30 rounded-full'>
+                        <Link href='/#get-report' className='bg-primary px-4 md:px-6 py-2 md:py-3 text-black hover:bg-primary/90 shadow-lg shadow-primary/30 rounded-full'>
                             Get Report
                         </Link>
-                        <Link href='/#why-us' className='bg-primary px-4 md:px-6 py-2 md:py-3 text-white hover:bg-primary/90 shadow-lg shadow-primary/30 rounded-full'>
+                        <Link href='/#why-us' className='bg-primary px-4 md:px-6 py-2 md:py-3 text-black hover:bg-primary/90 shadow-lg shadow-primary/30 rounded-full'>
                             Learn More
                         </Link>
 

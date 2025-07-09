@@ -34,7 +34,7 @@ export function Header() {
                             FAQ
                         </Link>
                         <Link href={'/#get-report'}>
-                            <Button className="bg-gradient-to-r from-secondary to-primary text-white hover:opacity-90 rounded-full">
+                            <Button className="bg-gradient-to-r from-secondary to-primary text-textcolor hover:opacity-90 rounded-full">
                                 Get Report
                             </Button>
                         </Link>

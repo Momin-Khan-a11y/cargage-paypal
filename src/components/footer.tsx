@@ -138,7 +138,7 @@ export function Footer() {
                                 <div className="flex items-center gap-2">
                                     <Mail className="h-5 w-5 text-secondary shrink-0" />
                                     <a href="mailto:report@cargage.us" className="hover:text-secondary transition-colors">
-                                        report@cargage.io
+                                        marie@4wheelscar.com
                                     </a>
                                 </div>
                                 <div className="flex items-center gap-2">

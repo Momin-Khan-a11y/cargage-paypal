@@ -209,21 +209,22 @@ export function CheckoutForm() {
                       <div className="flex items-center space-x-2">
                         <Checkbox
                           id="terms"
-                          checked={termsAccepted}
-                          onCheckedChange={handleTermsChange}
+                          // checked={termsAccepted}
+                          // onCheckedChange={handleTermsChange}
                         />
                         <label htmlFor="terms" className="text-sm text-gray-600">
                           I accept the terms and conditions
                         </label>
                       </div>
-                      {errors.terms && <p className="text-sm text-red-500">{errors.terms.message as string}</p>}
+                      {/* {errors.terms && <p className="text-sm text-red-500">{errors.terms.message as string}</p>} */}
                     </div>
                   </div>
                 </CardContent>
                 <CardFooter className="col-span-2">
                   <Button
                     className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white"
-                    disabled={!termsAccepted || isProcessing || showPaypal}
+                    disabled={ isProcessing || showPaypal} 
+                    /*!termsAccepted ||*/
                     type="submit"
                   >
                     {isProcessing ? "Processing..." : "Continue Payment"}

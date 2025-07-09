@@ -60,7 +60,7 @@ export function FeaturesSection() {
                 <div className="text-right">
                   <h3 className="font-semibold text-lg mb-1 text-white">{feature.title}</h3>
                 </div>
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-white">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-textcolor">
                   {feature.icon}
                 </div>
               </div>
@@ -89,7 +89,7 @@ export function FeaturesSection() {
                 data-aos="fade-left"
                 data-aos-delay={index * 100}
               >
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-white">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-secondary to-primary flex items-center justify-center text-textcolor">
                   {feature.icon}
                 </div>
                 <div>
