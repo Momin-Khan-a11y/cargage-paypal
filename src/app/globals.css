@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 300 14% 11%; /* #211a1d */
+    --background: 330 6% 79%; /*#cdc6c9 /*300 14% 11%;  #211a1d */
     --foreground: 0 0% 100%; /* white */
     
     /* Primary color - Purple */
-    --primary: 261 88% 53%; /* #6320ee */
+    --primary: 59 96% 54%; /*#faf719 /*261 88% 53%;  #6320ee */
     --primary-foreground: 0 0% 100%;
     
     /* Secondary color - Light Purple */
-    --secondary: 245 100% 73%; /* #8075ff */
+    --secondary: 59 94% 65%; /*#faf752 /*245 100% 73%;  #8075ff */
     --secondary-foreground: 0 0% 100%;
-    
+    --textcolor: 334 0% 3%;
     /* Accent colors */
     --accent: 261 88% 53%;
     --accent-foreground: 0 0% 100%;
     
     /* Other UI colors */
-    --border: 261 88% 53%;
-    --input: 261 88% 53%;
-    --ring: 261 88% 53%;
+    --border: 59 94% 65%;
+    --input: 334 0% 3%;
+    --ring: 59 94% 65%;
     
     /* Card colors */
     --card: 300 14% 11%;
@@ -83,7 +83,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-black;
   }
 }
 

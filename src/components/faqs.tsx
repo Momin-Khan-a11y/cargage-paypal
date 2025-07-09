@@ -82,10 +82,10 @@ export function FaqSection() {
             <section className="relative bg-gradient-to-r from-primary to-secondary py-24 overflow-hidden">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16" data-aos="fade-up">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-textcolor">
                             FREQUENTLY ASKED QUESTIONS
                         </h2>
-                        <p className="text-white/90">Here are a few questions that our customers ask</p>
+                        <p className="text-textcolor/90">Here are a few questions that our customers ask</p>
                     </div>
 
                     <div className="flex items-center">

@@ -70,7 +70,7 @@ export default function Steps({ currentStep, className }: StepsProps) {
               <div key={step.number} className="relative px-4" data-aos="flip-left" >
                 <motion.div
                   className={cn(
-                    "relative p-6 rounded-2xl border-[4px] bg-white/5 backdrop-blur-sm",
+                    "relative p-6 rounded-2xl border-[4px] bg-white backdrop-blur-sm",
                     isActive ? "border-secondary" : "border-transparent",
                   )}
                   animate={{
@@ -106,7 +106,7 @@ export default function Steps({ currentStep, className }: StepsProps) {
 
 
         <div className="flex justify-center mt-12" data-aos="fade-up">
-          <button className="bg-gradient-to-r from-secondary to-primary text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition-opacity shadow-lg shadow-primary/30"
+          <button className="bg-gradient-to-r from-secondary to-primary text-textcolor px-8 py-3 rounded-full font-medium hover:opacity-90 transition-opacity shadow-lg shadow-primary/30"
           onClick={handleDownload}>
             Download Demo Report
           </button>
