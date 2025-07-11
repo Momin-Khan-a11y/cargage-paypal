@@ -3,11 +3,11 @@ import Steps from '@/components/steps';
 import React, { useEffect, Suspense } from 'react'
 import AOS from "aos";
 import { CheckoutForm } from '@/components/checkoutForm';
-import { useSearchParams } from 'next/navigation';
+//import { useSearchParams } from 'next/navigation';
 
 function page() {
-  const searchParams = useSearchParams();
-  const vin = searchParams.get("vin") || "";
+  //const searchParams = useSearchParams();
+  //const vin = searchParams.get("vin") || "";
 
   useEffect(() => {
     AOS.init({
