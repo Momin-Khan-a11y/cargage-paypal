@@ -6,8 +6,8 @@ function Certificate() {
     <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div data-aos="fade-up">
-            <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
-              CarGage is certified by US Department <br />
+            <h2 className="text-3xl font-bold text-center mb-12 text-textcolor">
+              4WheelsCar is certified by US Department <br />
               of Justice and NMVTIS
             </h2>
             <div className="flex justify-center gap-8 flex-wrap">

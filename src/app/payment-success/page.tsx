@@ -56,13 +56,13 @@ export default function PaymentSuccess({
   }, [email, name, amount, vin]);
 
   return (
-    <main className="min-h-screen bg-background flex flex-col justify-center items-center p-6">
+    <main className="min-h-screen bg-foreground flex flex-col justify-center items-center p-6">
       <div className="max-w-md w-full bg-background/50 backdrop-blur-sm p-8 rounded-2xl border-2 border-primary/20">
         <div className="text-center space-y-6">
           {/* Success Icon */}
           <div className="mx-auto w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center">
             <svg
-              className="w-8 h-8 text-white"
+              className="w-8 h-8 text-textcolor"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -78,10 +78,10 @@ export default function PaymentSuccess({
 
           {/* Success Message */}
           <div className="space-y-2">
-            <h1 className="text-3xl font-bold text-white">
+            <h1 className="text-3xl font-bold text-textcolor">
               Payment Successful!
             </h1>
-            <p className="text-gray-400">
+            <p className="text-textcolor/80">
               Thank you for your purchase
             </p>
           </div>
@@ -89,7 +89,7 @@ export default function PaymentSuccess({
           {/* Amount */}
           <div className="bg-gradient-to-r from-primary to-secondary p-[2px] rounded-lg">
             <div className="bg-background rounded-lg p-4">
-              <p className="text-gray-400 text-sm">Amount paid</p>
+              <p className="text-textcolor/70 text-sm">Amount paid</p>
               <p className="text-2xl font-bold text-white">${(Number(amount))}</p>
             </div>
           </div>
@@ -97,13 +97,13 @@ export default function PaymentSuccess({
           {/* Buttons */}
           <div className="space-y-4 pt-4">
             <Link href="/#get-report" className="block">
-              <Button className="w-full bg-gradient-to-r from-primary to-secondary text-white hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/10">
+              <Button variant="outline" className="w-full bg-gradient-to-r from-primary to-secondary text-textcolor hover:bg-gradient-to-r hover:from-black/60 hover:to-black/80">
                 Get Another Report
               </Button>
             </Link>
             
             <Link href="/" className="block">
-              <Button variant="outline" className="w-full bg-gradient-to-r from-primary to-secondary text-white hover:bg-gradient-to-r hover:from-primary/10 hover:to-secondary/10">
+              <Button variant="outline" className="w-full bg-gradient-to-r from-primary to-secondary text-textcolor hover:bg-gradient-to-r hover:from-black/60 hover:to-black/80">
                 Back to Home
               </Button>
             </Link>
