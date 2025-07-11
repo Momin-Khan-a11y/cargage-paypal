@@ -134,8 +134,8 @@
 }
 
 /* Hide "Powered by PayPal" */
-.paypal-powered-by {
-  display: none !important;
+.paypal-powered-by, .powered-by-paypal-legacy {
+  display: hidden !important;
 }
 
 /* Force hide PayLater button */

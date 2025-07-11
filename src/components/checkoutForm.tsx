@@ -3,11 +3,11 @@
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import { Button } from "@/components/ui/button"
+// import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Checkbox } from "@/components/ui/checkbox"
+// import { Checkbox } from "@/components/ui/checkbox"
 import { toast } from "sonner"
 import React, { useState } from "react"
 import { useSearchParams, useRouter } from 'next/navigation';
@@ -152,8 +152,8 @@ export function CheckoutForm() {
 
 
   return (
-    <div className="min-h-screen bg-background py-20">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen bg-background py-10 sm:py-20 w-full">
+      <div className="container mx-auto px-4 w-full">
         <Card className="max-w-5xl mx-auto bg-white border-primary/20 text-black shadow-lg rounded-xl">
           <CardHeader className="text-center pb-6">
             <CardTitle className="text-3xl font-extrabold text-textcolor">
@@ -178,7 +178,7 @@ export function CheckoutForm() {
                       First Name
                     </Label>
                     <Input
-                      className="rounded-md border-gray-300 focus:border-primary focus:ring-primary"
+                      className="rounded-md border-gray-300 focus:border-background focus:ring-background"
                       id="firstName" {...register("firstName")} placeholder="First Name" />
                     {errors.firstName && <p className="text-sm text-red-500">{errors.firstName.message as string}</p>}
                   </div>
@@ -188,7 +188,7 @@ export function CheckoutForm() {
                       Last Name
                     </Label>
                     <Input
-                      className="rounded-md border-gray-300 focus:border-primary focus:ring-primary"
+                      className="rounded-md border-gray-300 focus:border-background focus:ring-background"
                       id="lastName" {...register("lastName")} placeholder="Last Name" />
                     {errors.lastName && <p className="text-sm text-red-500">{errors.lastName.message as string}</p>}
                   </div>
@@ -198,7 +198,7 @@ export function CheckoutForm() {
                     Email
                   </Label>
                   <Input
-                    className="rounded-md border-gray-300 focus:border-primary focus:ring-primary"
+                    className="rounded-md border-gray-300 focus:border-background focus:ring-background"
                     id="email" type="email" {...register("email")} placeholder="Email Address" />
                   {errors.email && <p className="text-sm text-red-500">{errors.email.message as string}</p>}
                 </div>
@@ -208,7 +208,7 @@ export function CheckoutForm() {
                     Phone
                   </Label>
                   <Input
-                    className="rounded-md border-gray-300 focus:border-primary focus:ring-primary"
+                    className="rounded-md border-gray-300 focus:border-background focus:ring-background"
                     id="phone" type="tel" {...register("phone")} placeholder="Phone Number" />
                   {errors.phone && <p className="text-sm text-red-500">{errors.phone.message as string}</p>}
                 </div>
@@ -218,7 +218,7 @@ export function CheckoutForm() {
                     Street Address
                   </Label>
                   <Input
-                    className="rounded-md border-gray-300 focus:border-primary focus:ring-primary"
+                    className="rounded-md border-gray-300 focus:border-background focus:ring-background"
                     id="address" {...register("address")} placeholder="Street Address" />
                   {errors.address && <p className="text-sm text-red-500">{errors.address.message as string}</p>}
                 </div>
@@ -226,7 +226,7 @@ export function CheckoutForm() {
                   <div className="space-y-2">
                     <Label htmlFor="city">City</Label>
                     <Input
-                      className="rounded-md border-gray-300 focus:border-primary focus:ring-primary"
+                      className="rounded-md border-gray-300 focus:border-background focus:ring-background"
                       id="city" {...register("city")} placeholder="City" />
                     {errors.city && <p className="text-sm text-red-500">{errors.city.message as string}</p>}
                   </div>
@@ -234,7 +234,7 @@ export function CheckoutForm() {
                   <div className="space-y-2">
                     <Label htmlFor="state">State/ Province</Label>
                     <Input
-                      className="rounded-md border-gray-300 focus:border-primary focus:ring-primary"
+                      className="rounded-md border-gray-300 focus:border-background focus:ring-background"
                       id="state" {...register("state")} placeholder="State" />
                     {errors.state && <p className="text-sm text-red-500">{errors.state.message as string}</p>}
                   </div>
@@ -243,7 +243,7 @@ export function CheckoutForm() {
                   <div className="space-y-2">
                     <Label htmlFor="postalCode">Postal Code</Label>
                     <Input
-                      className="rounded-md border-gray-300 focus:border-primary focus:ring-primary"
+                      className="rounded-md border-gray-300 focus:border-background focus:ring-background"
                       id="postalCode" {...register("postalCode")} placeholder="Postal Code" />
                     {errors.postalCode && <p className="text-sm text-red-500">{errors.postalCode.message as string}</p>}
                   </div>
@@ -253,7 +253,7 @@ export function CheckoutForm() {
                       Country
                     </Label>
                     <Input
-                      className="rounded-md border-gray-300 focus:border-primary focus:ring-primary"
+                      className="rounded-md border-gray-300 focus:border-background focus:ring-background"
                       id="country" {...register("country")} placeholder="Country" />
                     {errors.country && <p className="text-sm text-red-500">{errors.country.message as string}</p>}
                   </div>
@@ -262,7 +262,7 @@ export function CheckoutForm() {
                 <div className="space-y-2 text-start">
                   <Label htmlFor="vin">VIN (Vehicle Identification Number)</Label>
                   <Input
-                    className="rounded-md border-gray-300 focus:border-primary focus:ring-primary"
+                    className="rounded-md border-gray-300 focus:border-background focus:ring-background"
                     id="vin" {...register("vin")} placeholder="17-digit VIN" />
                   {errors.vin && <p className="text-sm text-red-500">{errors.vin.message as string}</p>}
                 </div>
