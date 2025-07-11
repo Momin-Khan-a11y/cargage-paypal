@@ -22,11 +22,11 @@ interface PaypalPayProps {
 export default function PaypalPay({ amount, email, FirstName, LastName, vin,disabled , zipCode, onSuccess }: PaypalPayProps) {
     const paypalRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        if (paypalRef.current) {
-            paypalRef.current.scrollIntoView({ behavior: 'smooth' });
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (paypalRef.current) {
+    //         paypalRef.current.scrollIntoView({ behavior: 'smooth' });
+    //     }
+    // }, []);
 
     const handleSuccess = (details: any) => {
         console.log("Transaction completed by", details.payer.name.given_name);

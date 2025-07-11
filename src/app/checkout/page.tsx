@@ -3,17 +3,26 @@ import Steps from '@/components/steps';
 import React, { useEffect, Suspense } from 'react'
 import AOS from "aos";
 import { CheckoutForm } from '@/components/checkoutForm';
-//import { useSearchParams } from 'next/navigation';
+// import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 
 function page() {
-  //const searchParams = useSearchParams();
-  //const vin = searchParams.get("vin") || "";
+  // const searchParams = useSearchParams();
+  // const vin = searchParams.get("vin") || "";
 
   useEffect(() => {
     AOS.init({
       duration: 1000,
     })
   }, [])
+
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     AOS.init({ duration: 1000, once: true });
+  //     window.scrollTo({ top: 0, behavior: 'smooth' }); // reset scroll after animation init
+  //   }, 100);
+  // }, []);
 
   return (
     <Suspense fallback={
@@ -24,11 +33,13 @@ function page() {
         </div>
       </div>
     }>
-      <div className=' w-full bg-gradient-to-r from-primary to-secondary' >
-        <div className='w-full flex flex-col gap-8 items-center justify-center py-40 px-4' data-aos="fade-down">
-          <h1 className='text-xl sm:text-3xl font-bold text-textcolor max-w-xl text-center'>
+      <div className=' w-full bg-gradient-to-r from-primary to-secondary p-0' >
+        <div className='w-full flex flex-wrap gap-8 items-center justify-center pt-32 sm:pt-40 pb-8 px-4' data-aos="fade-down">
+
+          <h1 className='text-xl sm:text-3xl font-bold text-textcolor max-w-xl text-center lg:text-start'>
             Get Your Vehicle History Report Now For Just $39.99
           </h1>
+          <Image src="/copg.png" alt="Vehicle Image" width={400} height={300} />
         </div>
         <div className="bg-background w-full">
           <svg
@@ -73,7 +84,7 @@ function page() {
           </svg>
         </div>
       </div>
-      <div className='w-full flex flex-col text-center items-center justify-center gap-8 pt-20 px-5'>
+      <div className='w-full flex flex-col text-center items-center justify-center gap-8 pt-0 sm:pt-10 px-2 sm:px-5'>
         <CheckoutForm />
       </div>
       <Steps currentStep={3} />

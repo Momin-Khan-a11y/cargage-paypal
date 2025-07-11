@@ -113,7 +113,7 @@ export async function POST(request: NextRequest) {
               <div class="divider"></div>
 
               <div class="footer">
-                <p>Need help? Contact us at support@thevehiclerecord.us</p>
+                <p>Need help? Contact us at marie@4wheelscar.com</p>
                 <p>© ${new Date().getFullYear()} Vehicle Record. All rights reserved.</p>
                 <p>1901 8th Avenue Tuscaloosa, AL 35401</p>
               </div>
