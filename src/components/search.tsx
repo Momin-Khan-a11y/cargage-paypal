@@ -26,8 +26,8 @@ function SearchSec() {
     const handleSearch = () => {
         if (validateVIN(searchQuery)) {
             // Redirect to category page with the search query
-            // router.push(`/recordfound?vin=${encodeURIComponent(searchQuery)}`);
-            router.push(`/checkout?vin=${encodeURIComponent(searchQuery)}`);
+            router.push(`/recordfound?vin=${encodeURIComponent(searchQuery)}`);
+            // router.push(`/checkout?vin=${encodeURIComponent(searchQuery)}`);
         }
     };
 

@@ -49,9 +49,9 @@ export default function PrivacyPolicy() {
                         <ScrollArea className="h-[60vh] p-6 md:p-8">
                             <div className="space-y-8 text-white">
                                 <div data-aos="fade-up">
-                                    <h2 className="text-2xl font-bold mb-4">Welcome to The Vehicle Record</h2>
+                                    <h2 className="text-2xl font-bold mb-4">Welcome to The 4WheelsCar</h2>
                                     <p className="text-gray-300 leading-relaxed">
-                                        At The Vehicle Record, we are committed to protecting your privacy. This Privacy Policy explains
+                                        At The 4WheelsCar, we are committed to protecting your privacy. This Privacy Policy explains
                                         how we collect, use, and safeguard your personal information when you visit our website or use our
                                         services.
                                     </p>
@@ -100,7 +100,7 @@ export default function PrivacyPolicy() {
                                     <h3 className="text-xl font-semibold mb-3">Contact Us</h3>
                                     <p className="text-gray-300 leading-relaxed">
                                         If you have any questions about this Privacy Policy, please contact us at
-                                        contact@thevehiclerecord.us
+                                        marie@4wheelscar.com
                                     </p>
                                 </div>
                             </div>

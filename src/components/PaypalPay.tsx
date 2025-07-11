@@ -14,11 +14,12 @@ interface PaypalPayProps {
     LastName: string;
     zipCode: string;
     vin: string;
+    disabled: boolean;
     onSuccess: (details: any) => void;
     onFormSubmit: () => void;
 }
 
-export default function PaypalPay({ amount, email, FirstName, LastName, vin, zipCode, onSuccess }: PaypalPayProps) {
+export default function PaypalPay({ amount, email, FirstName, LastName, vin,disabled , zipCode, onSuccess }: PaypalPayProps) {
     const paypalRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -47,11 +48,12 @@ export default function PaypalPay({ amount, email, FirstName, LastName, vin, zip
         }}>
             {/*  Payment */}
             <div ref={paypalRef} className="w-full max-w-md mx-auto ">
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                    <h3 className="text-lg font-semibold mb-4 text-black text-center">Complete Your Payment</h3>
+                {/* <div className="bg-white p-6 rounded-lg shadow-md"> */}
+                    {/* <h3 className="text-lg font-semibold mb-4 text-black text-center">Complete Your Payment</h3> */}
                     <div className="space-y-4">
-                        <p className="text-center text-gray-600">Total Amount: ${Number.parseFloat(amount).toFixed(2)}</p>
+                        {/* <p className="text-center text-gray-600">Total Amount: ${Number.parseFloat(amount).toFixed(2)}</p> */}
                         <PayPalButtons
+                            disabled={disabled}
                             createOrder={(data, actions) => {
                                 return actions.order.create({
                                     intent: "CAPTURE",
@@ -100,7 +102,7 @@ export default function PaypalPay({ amount, email, FirstName, LastName, vin, zip
                             }}
                         />
                     </div>
-                </div>
+                {/* </div> */}
             </div>
         </PayPalScriptProvider>
     )

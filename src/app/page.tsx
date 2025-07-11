@@ -28,7 +28,7 @@ export default function Home() {
       <Certificate />
       <Steps currentStep={1} />
       <FeaturesSection />
-      <FaqSection />
+      <FaqSection bg_col_up="from-[#0F172A] to-[#0c1733]" bg_col_down="bg-white" />
       <PartnersSection />
     </div>
   );

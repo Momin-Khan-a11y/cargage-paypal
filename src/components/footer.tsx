@@ -48,8 +48,8 @@ export function Footer() {
                         {/* Logo Section */}
                         <div className="flex flex-col items-center ">
                             <Link href="/" className="text-2xl sm:text-3xl font-bold mb-4 uppercase">
-                                <span className="text-primary">Car</span>
-                                <span> Gage</span>
+                                <span className="text-primary">4Wheels</span>
+                                <span> Car</span>
                             </Link>
                             <div className="flex gap-2 mt-4 justify-center md:justify-start">
                                 {/* visa */}
@@ -137,7 +137,7 @@ export function Footer() {
                             <div className="space-y-4 flex flex-col items-center md:items-start">
                                 <div className="flex items-center gap-2">
                                     <Mail className="h-5 w-5 text-secondary shrink-0" />
-                                    <a href="mailto:report@cargage.us" className="hover:text-secondary transition-colors">
+                                    <a href="mailto:marie@4wheelscar.com" className="hover:text-secondary transition-colors">
                                         marie@4wheelscar.com
                                     </a>
                                 </div>

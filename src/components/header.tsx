@@ -14,8 +14,8 @@ export function Header() {
                 <div className="flex items-center justify-between h-16">
                     <Link href="/" className="flex items-center">
                         <span className="text-2xl font-bold uppercase">
-                            <span className="text-primary">Car </span>
-                            <span className="text-white">Gage</span>
+                            <span className="text-primary">4Wheels </span>
+                            <span className="text-white">Car</span>
                         </span>
                     </Link>
 

@@ -67,9 +67,9 @@ export function PartnersSection() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16" data-aos="fade-up">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
-                        THE VEHICLE RECORD IS PROUDLY PARTNERED!</h2>
+                        THE 4WheelsCar IS PROUDLY PARTNERED!</h2>
                     <p className="text-gray-600">
-                        The Vehicle Record is Proud to be Partnered with Leaders in the Automotive Industry
+                        The 4WheelsCar is Proud to be Partnered with Leaders in the Automotive Industry
                     </p>
                 </div>
 

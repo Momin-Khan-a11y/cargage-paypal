@@ -3,19 +3,12 @@ import Steps from '@/components/steps';
 import React, { useEffect, Suspense } from 'react'
 import AOS from "aos";
 import { CheckoutForm } from '@/components/checkoutForm';
-import { useSearchParams } from 'next/navigation';
-
-function VIN() {
-  const vinParams = useSearchParams();
-  const VIN = vinParams.get("vin") || "";
-  return (
-          <h1 className='text-xl sm:text-4xl font-bold text-textcolor max-w-xl text-center' data-aos="fade-down">
-            Congrats! We've found the VHR for the VIN: {VIN}
-          </h1>
-  )
-} 
+//import { useSearchParams } from 'next/navigation';
 
 function page() {
+  //const searchParams = useSearchParams();
+  //const vin = searchParams.get("vin") || "";
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -33,10 +26,9 @@ function page() {
     }>
       <div className=' w-full bg-gradient-to-r from-primary to-secondary' >
         <div className='w-full flex flex-col gap-8 items-center justify-center py-40 px-4' data-aos="fade-down">
-          <VIN />
-          {/* <p className='text-white text-lg max-w-xl text-center' data-aos="fade-up">
-            Please proceed to checkout to purchase the Vehicle History Report (VHR) for the VIN: {VIN}.
-          </p> */}
+          <h1 className='text-xl sm:text-3xl font-bold text-textcolor max-w-xl text-center'>
+            Get Your Vehicle History Report Now For Just $39.99
+          </h1>
         </div>
         <div className="bg-background w-full">
           <svg
@@ -82,12 +74,8 @@ function page() {
         </div>
       </div>
       <div className='w-full flex flex-col text-center items-center justify-center gap-8 pt-20 px-5'>
-        <h1 className='text-xl sm:text-3xl font-bold text-textcolor max-w-xl text-center'>
-          Get Your Vehicle History Report Now For Just $39.99
-        </h1>
-        
+        <CheckoutForm />
       </div>
-      <CheckoutForm />
       <Steps currentStep={3} />
     </Suspense>
   )
