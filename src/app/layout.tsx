@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: '4WheelsCar',
     images: [
       {
-        url: 'https://4wheelscar.com/og-img.png', // Path to your default OG image in public/
+        url: 'https://4wheelscar.com/feature.png', // Path to your default OG image in public/
         width: 1200,
         height: 630,
         alt: '4WheelsCar - Automotive Reports & Reviews',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '4WheelsCar - Car Reports & Reviews',
     description: 'Discover in-depth car reports, expert reviews, latest news, and buying guides for all vehicle types at 4WheelsCar.',
-    images: ['https://4wheelscar.com/og-img.png'], // Path to your default Twitter image in public/
+    images: ['https://4wheelscar.com/feature.png'], // Path to your default Twitter image in public/
     creator: '@4wheelscar_handle', // Replace with your actual Twitter handle if you have one
   },
 
