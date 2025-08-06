@@ -6,6 +6,7 @@ import { Footer } from "@/components/footer"
 import "aos/dist/aos.css";
 import { Toaster } from 'sonner'
 
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -16,6 +17,7 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+
 
 export const metadata: Metadata = {
   title: "4WheelsCar - Know Before You Go. Complete Vehicle History at Your Fingertips.",
