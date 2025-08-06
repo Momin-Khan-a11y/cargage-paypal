@@ -5,7 +5,7 @@ import { Buffer } from 'buffer';
 async function getAccessToken() {
     const auth = Buffer.from(`${process.env.PAYPAL_CLIENT_ID}:${process.env.PAYPAL_CLIENT_SECRET}`).toString('base64');
     try {
-        const response = await axios("https://api-m.sandbox.paypal.com/v1/oauth2/token", { // Use "https://api-m.paypal.com" for production
+        const response = await axios("https://api-m.paypal.com/v1/oauth2/token", { // Use "https://api-m.paypal.com" for production
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
@@ -29,7 +29,7 @@ async function getAccessToken() {
 // Function to create a PayPal order
 async function createOrder(amount: number, currency = "USD") {
     const accessToken = await getAccessToken();
-    const url = "https://api-m.sandbox.paypal.com/v2/checkout/orders"; // Use "https://api-m.paypal.com" for production
+    const url = "https://api-m.paypal.com/v2/checkout/orders"; // Use "https://api-m.paypal.com" for production
 
     try {
         const response = await axios({
@@ -68,7 +68,7 @@ async function createOrder(amount: number, currency = "USD") {
 // Function to capture a PayPal order
 async function captureOrder(orderID : any) {
     const accessToken = await getAccessToken();
-    const url = `https://api-m.sandbox.paypal.com/v2/checkout/orders/${orderID}/capture`; // Use "https://api-m.paypal.com" for production
+    const url = `https://api-m.paypal.com/v2/checkout/orders/${orderID}/capture`; // Use "https://api-m.paypal.com" for production
 
     try {
         const response = await axios({
@@ -94,3 +94,4 @@ async function captureOrder(orderID : any) {
 }
 
 export { getAccessToken, createOrder, captureOrder };
+
