@@ -83,7 +83,7 @@ export default function PaypalPay({ amount, email, FirstName, LastName, vin, dis
             <div className="space-y-4">
                 {isProcessing && (
                     <div className="text-center text-gray-700 font-semibold mb-4">
-                        Processing payment... Please wait.
+                        Processing Order... Please wait.
                     </div>
                 )}
                 <PayPalButtons
@@ -100,3 +100,4 @@ export default function PaypalPay({ amount, email, FirstName, LastName, vin, dis
         </div>
     );
 }
+
