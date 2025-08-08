@@ -53,13 +53,13 @@ export function Header() {
                         <Link href="/" className="block text-white hover:text-primary transition-colors">
                             Home
                         </Link>
-                        <Link href="/how-to" className="block text-white hover:text-primary transition-colors">
+                        <Link href="#/how-to" className="block text-white hover:text-primary transition-colors">
                             How To
                         </Link>
-                        <Link href="/why-us" className="block text-white hover:text-primary transition-colors">
+                        <Link href="#/why-us" className="block text-white hover:text-primary transition-colors">
                             Why Us
                         </Link>
-                        <Link href="/faq" className="block text-white hover:text-primary transition-colors">
+                        <Link href="#/faq" className="block text-white hover:text-primary transition-colors">
                             FAQ
                         </Link>
                         <Button className="w-full bg-primary text-black hover:bg-primary/90">Get Report</Button>
@@ -69,4 +69,5 @@ export function Header() {
         </header>
     )
 }
+
 
