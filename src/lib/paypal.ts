@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Buffer } from 'buffer';
 
 let cachedToken: { token: string; expiresAt: number } | null = null;
-
+const API_BASE = 'https://api-m.paypal.com'
 /**
  * Get a PayPal access token using client credentials.
  * Caches the token until it expires (usually 8-9 hours).
@@ -18,7 +18,7 @@ async function getAccessToken(): Promise<string> {
     const auth = Buffer.from(`${process.env.PAYPAL_CLIENT_ID}:${process.env.PAYPAL_CLIENT_SECRET}`).toString('base64');
 
     try {
-        const response = await axios("https://api-m.paypal.com/v1/oauth2/token", {
+        const response = await axios(`${API_BASE}/v1/oauth2/token`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
@@ -41,7 +41,13 @@ async function getAccessToken(): Promise<string> {
 
         return data.access_token;
     } catch (error: any) {
-        console.error("PayPal access token error:", error.response?.data || error.message);
+        const debugId = error?.response?.headers?.['paypal-debug-id']
+        console.error("PayPal access token error:", {
+            status: error?.response?.status,
+            data: error?.response?.data,
+            debugId,
+            message: error?.message,
+        });
         throw new Error("Unable to retrieve PayPal access token");
     }
 }
@@ -51,7 +57,7 @@ async function getAccessToken(): Promise<string> {
  */
 async function createOrder(amount: number, currency = "USD") {
     const accessToken = await getAccessToken();
-    const url = "https://api-m.paypal.com/v2/checkout/orders";
+    const url = `${API_BASE}/v2/checkout/orders`;
 
     try {
         const response = await axios({
@@ -73,13 +79,20 @@ async function createOrder(amount: number, currency = "USD") {
                 ],
                 application_context: {
                     shipping_preference: "NO_SHIPPING",
+                    user_action: 'PAY_NOW',
                 },
             },
         });
 
         return response.data;
     } catch (error: any) {
-        console.error("PayPal create order error:", error.response?.data || error.message);
+        const debugId = error?.response?.headers?.['paypal-debug-id']
+        console.error("PayPal create order error:", {
+            status: error?.response?.status,
+            data: error?.response?.data,
+            debugId,
+            message: error?.message,
+        });
         throw new Error("Failed to create PayPal order");
     }
 }
@@ -89,7 +102,7 @@ async function createOrder(amount: number, currency = "USD") {
  */
 async function captureOrder(orderID: string) {
     const accessToken = await getAccessToken();
-    const url = `https://api-m.paypal.com/v2/checkout/orders/${orderID}/capture`;
+    const url = `${API_BASE}/v2/checkout/orders/${orderID}/capture`;
 
     try {
         const response = await axios({
@@ -103,7 +116,13 @@ async function captureOrder(orderID: string) {
 
         return response.data;
     } catch (error: any) {
-        console.error("PayPal capture order error:", error.response?.data || error.message);
+        const debugId = error?.response?.headers?.['paypal-debug-id']
+        console.error("PayPal capture order error:", {
+            status: error?.response?.status,
+            data: error?.response?.data,
+            debugId,
+            message: error?.message,
+        });
         throw new Error("Failed to capture PayPal order");
     }
 }
