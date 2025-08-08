@@ -62,12 +62,15 @@ export function Header() {
                         <Link href="#/faq" className="block text-white hover:text-primary transition-colors">
                             FAQ
                         </Link>
-                        <Button className="w-full bg-primary text-black hover:bg-primary/90">Get Report</Button>
+                        <Link href={'/#get-report'}>
+                            <Button className="w-full bg-primary text-black hover:bg-primary/90">Get Report</Button>
+                        </Link>
                     </nav>
                 )}
             </div>
         </header>
     )
 }
+
 
 
