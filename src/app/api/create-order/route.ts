@@ -11,7 +11,7 @@ export async function POST(req: any) {
 
         // Call the utility function to create the order with PayPal
         const order = await createOrder(amount, currency);
-
+        console.log(order)
         // Return the PayPal order ID to the client
         return NextResponse.json({ id: order.id }, { status: 200 });
     } catch (error: any) {
@@ -22,3 +22,4 @@ export async function POST(req: any) {
         );
     }
 }
+
