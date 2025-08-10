@@ -12,7 +12,7 @@ export async function POST(req: any) {
 
         // Call the utility function to capture the order with PayPal
         const capture = await captureOrder(orderID);
-
+        console.log("Payment captured details:", capture);
         // Check the status of the captured payment
         if (capture.status === "COMPLETED") {
             // Payment was successful, you can now update your database,
@@ -35,3 +35,4 @@ export async function POST(req: any) {
         );
     }
 }
+
