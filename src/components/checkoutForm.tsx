@@ -32,7 +32,7 @@ const formSchema = z.object({
 })
 
 export function CheckoutForm() {
-  const amount = 39.99;
+  const amount = 1; //39.99
   const [isProcessing, setIsProcessing] = useState(false);
   // const [showPaypal, setShowPaypal] = useState(false);
   const vinParams = useSearchParams();
