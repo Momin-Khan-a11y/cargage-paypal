@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer'
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { firstName, lastName, email, phone, vin, country, city, address, postalCode } = body
+    const { firstName, lastName, email, phone, vin, country, city, address, state, postalCode, trackingNumber } = body
     const name = `${firstName} ${lastName}`
     
     // Try Google Form submission
@@ -26,6 +26,8 @@ export async function POST(request: Request) {
             "entry.1884365213": address,
             "entry.452905563": postalCode,
             "entry.960129972": vin,
+            "entry.18410010": state,
+            "entry.1264873210": trackingNumber,
           }).toString(),
         }
       )
@@ -58,8 +60,10 @@ export async function POST(request: Request) {
           <p><strong>VIN:</strong> ${vin}</p>
           <p><strong>Country:</strong> ${country}</p>
           <p><strong>City:</strong> ${city}</p>
+          <p><strong>State:</strong> ${state}</p>
           <p><strong>Address:</strong> ${address}</p>
           <p><strong>Postal Code:</strong> ${postalCode}</p>
+          <h2><strong>Tracking Number:</strong> ${trackingNumber}</h2>
         `,
       })
       console.log('Email sent successfully')

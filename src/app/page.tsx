@@ -19,14 +19,14 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="font-[family-name:var(--font-geist-sans)]">
+    <div className="font-[family-name:var(--font-geist-sans)] bg-foreground">
       <div className="bg-[url('/svg-bg-strip2.png')] bg-contain bg-blend-color-dodge  pt-6 sm:pt-32">
         
       </div>
       <Hero />
       <SearchSec />
       <Certificate />
-      <Steps currentStep={1} />
+      <Steps currentStep={1} className="" />
       <FeaturesSection />
       <FaqSection bg_col_up="from-[#0F172A] to-[#0c1733]" bg_col_down="bg-white" />
       <PartnersSection />

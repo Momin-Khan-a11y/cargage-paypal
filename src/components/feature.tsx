@@ -69,9 +69,9 @@ export function FeaturesSection() {
 
           {/* Center Image */}
           <div className="relative" data-aos="zoom-in">
-            <div className="aspect-[4/3] relative">
+            <div className="aspect-[4/4] relative">
               <Image
-                src="/feature.png"
+                src="/feature1.png"
                 alt="Ford Raptor"
                 fill
                 className="object-contain"

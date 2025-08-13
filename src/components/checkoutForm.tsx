@@ -13,7 +13,12 @@ import React, { useState } from "react"
 import { useSearchParams, useRouter } from 'next/navigation';
 import PaypalPay from './PaypalPay';
 import { FUNDING, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { v4 as uuidv4 } from 'uuid'
 
+
+const generateTrackingNumber = () => {
+  return `TRK-${uuidv4().slice(0, 8).toUpperCase()}` // e.g., TRK-A1B2C3D4
+}
 
 const formSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
@@ -38,6 +43,7 @@ export function CheckoutForm() {
   const vinParams = useSearchParams();
   const VIN = vinParams.get("vin") || "";
   const router = useRouter();
+  const [trackingNumber] = useState(() => generateTrackingNumber())
 
   const {
     register,
@@ -112,7 +118,10 @@ export function CheckoutForm() {
       const formResponse = await fetch("/api/submit-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData), // Use the latest watched form data
+        body: JSON.stringify({
+          ...formData,
+          trackingNumber,
+      }), // Use the latest watched form data
       });
 
       if (!formResponse.ok) {
@@ -120,7 +129,7 @@ export function CheckoutForm() {
       }
 
       toast.success("Payment successful and details saved!");
-      router.push(`/payment-success?amount=${amount}&email=${details.payer.email_address}&name=${details.payer.name.given_name}&vin=${VIN}`);
+      router.push(`/payment-success?amount=${amount}&email=${details.payer.email_address}&name=${details.payer.name.given_name}&vin=${VIN}&trackingNumber=${trackingNumber}`);
 
     } catch (error) {
       console.error("Error saving form details after payment:", error);
@@ -152,7 +161,7 @@ export function CheckoutForm() {
   return (
     <PayPalScriptProvider options={initialOptions}>
 
-      <div className="min-h-screen bg-background py-10 sm:py-20 w-full">
+      <div className="min-h-screen bg-foreground py-10 sm:py-20 w-full">
         <div className="container mx-auto px-4 w-full">
           <Card className="max-w-5xl mx-auto bg-white border-primary/20 text-black shadow-lg rounded-xl">
             <CardHeader className="text-center pb-6">
@@ -178,7 +187,7 @@ export function CheckoutForm() {
                         First Name
                       </Label>
                       <Input
-                        className="rounded-md border-gray-300 focus:border-background focus:ring-background"
+                        className="rounded-md border-gray-400 focus:border-black placeholder:text-gray-400 focus:ring-background"
                         id="firstName" {...register("firstName")} placeholder="First Name" />
                       {errors.firstName && <p className="text-sm text-red-500">{errors.firstName.message as string}</p>}
                     </div>
@@ -188,7 +197,7 @@ export function CheckoutForm() {
                         Last Name
                       </Label>
                       <Input
-                        className="rounded-md border-gray-300 focus:border-background focus:ring-background"
+                        className="rounded-md border-gray-400 focus:border-black placeholder:text-gray-400 focus:ring-background"
                         id="lastName" {...register("lastName")} placeholder="Last Name" />
                       {errors.lastName && <p className="text-sm text-red-500">{errors.lastName.message as string}</p>}
                     </div>
@@ -198,7 +207,7 @@ export function CheckoutForm() {
                       Email
                     </Label>
                     <Input
-                      className="rounded-md border-gray-300 focus:border-background focus:ring-background"
+                      className="rounded-md border-gray-400 focus:border-black placeholder:text-gray-400 focus:ring-background"
                       id="email" type="email" {...register("email")} placeholder="Email Address" />
                     {errors.email && <p className="text-sm text-red-500">{errors.email.message as string}</p>}
                   </div>
@@ -208,7 +217,7 @@ export function CheckoutForm() {
                       Phone
                     </Label>
                     <Input
-                      className="rounded-md border-gray-300 focus:border-background focus:ring-background"
+                      className="rounded-md border-gray-400 focus:border-black placeholder:text-gray-400 focus:ring-background"
                       id="phone" type="tel" {...register("phone")} placeholder="Phone Number" />
                     {errors.phone && <p className="text-sm text-red-500">{errors.phone.message as string}</p>}
                   </div>
@@ -218,7 +227,7 @@ export function CheckoutForm() {
                       Street Address
                     </Label>
                     <Input
-                      className="rounded-md border-gray-300 focus:border-background focus:ring-background"
+                      className="rounded-md border-gray-400 focus:border-black placeholder:text-gray-400 focus:ring-background"
                       id="address" {...register("address")} placeholder="Street Address" />
                     {errors.address && <p className="text-sm text-red-500">{errors.address.message as string}</p>}
                   </div>
@@ -226,7 +235,7 @@ export function CheckoutForm() {
                     <div className="space-y-2">
                       <Label htmlFor="city">City</Label>
                       <Input
-                        className="rounded-md border-gray-300 focus:border-background focus:ring-background"
+                        className="rounded-md border-gray-400 focus:border-black placeholder:text-gray-400 focus:ring-background"
                         id="city" {...register("city")} placeholder="City" />
                       {errors.city && <p className="text-sm text-red-500">{errors.city.message as string}</p>}
                     </div>
@@ -234,7 +243,7 @@ export function CheckoutForm() {
                     <div className="space-y-2">
                       <Label htmlFor="state">State/ Province</Label>
                       <Input
-                        className="rounded-md border-gray-300 focus:border-background focus:ring-background"
+                        className="rounded-md border-gray-400 focus:border-black placeholder:text-gray-400 focus:ring-background"
                         id="state" {...register("state")} placeholder="State" />
                       {errors.state && <p className="text-sm text-red-500">{errors.state.message as string}</p>}
                     </div>
@@ -243,7 +252,7 @@ export function CheckoutForm() {
                     <div className="space-y-2">
                       <Label htmlFor="postalCode">Postal Code</Label>
                       <Input
-                        className="rounded-md border-gray-300 focus:border-background focus:ring-background"
+                        className="rounded-md border-gray-400 focus:border-black placeholder:text-gray-400 focus:ring-background"
                         id="postalCode" {...register("postalCode")} placeholder="Postal Code" />
                       {errors.postalCode && <p className="text-sm text-red-500">{errors.postalCode.message as string}</p>}
                     </div>
@@ -253,7 +262,7 @@ export function CheckoutForm() {
                         Country
                       </Label>
                       <Input
-                        className="rounded-md border-gray-300 focus:border-background focus:ring-background"
+                        className="rounded-md border-gray-400 focus:border-black placeholder:text-gray-400 focus:ring-background"
                         id="country" {...register("country")} placeholder="Country" />
                       {errors.country && <p className="text-sm text-red-500">{errors.country.message as string}</p>}
                     </div>
@@ -262,7 +271,7 @@ export function CheckoutForm() {
                   <div className="space-y-2 text-start">
                     <Label htmlFor="vin">VIN (Vehicle Identification Number)</Label>
                     <Input
-                      className="rounded-md border-gray-300 focus:border-background focus:ring-background"
+                      className="rounded-md border-gray-400 focus:border-black placeholder:text-gray-400 focus:ring-background"
                       id="vin" {...register("vin")} placeholder="17-digit VIN" />
                     {errors.vin && <p className="text-sm text-red-500">{errors.vin.message as string}</p>}
                   </div>
@@ -278,6 +287,10 @@ export function CheckoutForm() {
                     <div className="flex justify-between items-center">
                       <span className="font-medium">VIN:</span>
                       <span className="font-bold text-textcolor break-all">{VIN || "N/A"}</span>
+                    </div>
+                      <div className="flex justify-between items-center">
+                      <span className="font-medium">Order Number:</span>
+                      <span className="font-bold text-textcolor">{trackingNumber}</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="font-medium">Report Type:</span>

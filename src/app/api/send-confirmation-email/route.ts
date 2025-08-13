@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(request: NextRequest) {
   try {
-    const { email, name, amount, vin } = await request.json();
+    const { email, name, amount, vin, trackingNumber } = await request.json();
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -104,10 +104,11 @@ export async function POST(request: NextRequest) {
                 <p><strong>Order Details:</strong></p>
                 <p>Vehicle History Report for VIN: ${vin}</p>
                 <p>Date: ${new Date().toLocaleDateString()}</p>
+                <p>Tracking Number: ${trackingNumber}</p>
               </div>
 
               <div style="text-align: center;">
-                <h2>Your report will be delivered within 24 hours to this email address.</h2>
+                <h2>Your report will be delivered within 30 minutes to this email address.</h2>
               </div>
 
               <div class="divider"></div>

@@ -81,7 +81,7 @@ function RecordFoundContent() {
                 </div>
             </div>
             <Steps currentStep={2} />
-            <FaqSection bg_col_up="from-[#cdc6c9] to-[#cdc6c9]" bg_col_down='bg-[#0B1120]' />
+            <FaqSection bg_col_up="from-white to-[#cdc6c9]" bg_col_down='bg-[#0B1120]' />
         </>
 
     )
@@ -90,7 +90,7 @@ function RecordFoundContent() {
 export default function RecordFound() {
     return (
         <Suspense fallback={
-            <div className="min-h-screen flex items-center justify-center bg-background">
+            <div className="min-h-screen flex items-center justify-center bg-foreground">
                 <div className="animate-pulse space-y-4">
                     <div className="h-12 bg-primary/20 rounded w-96"></div>
                     <div className="h-48 bg-primary/20 rounded w-96"></div>

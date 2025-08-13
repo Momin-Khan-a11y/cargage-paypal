@@ -26,7 +26,7 @@ function page() {
 
   return (
     <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center bg-background">
+      <div className="min-h-screen flex items-center justify-center bg-foreground">
         <div className="animate-pulse space-y-4">
           <div className="h-12 bg-primary/20 rounded w-96"></div>
           <div className="h-48 bg-primary/20 rounded w-96"></div>
@@ -41,7 +41,7 @@ function page() {
           </h1>
           <Image src="/copg.png" alt="Vehicle Image" width={400} height={300} />
         </div>
-        <div className="bg-background w-full">
+        <div className="bg-foreground w-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 283.5 27.8"

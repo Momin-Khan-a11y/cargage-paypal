@@ -4,13 +4,14 @@ import Link from "next/link"
 import { useEffect } from "react"
 
 export default function PaymentSuccess({
-  searchParams: { amount, email, name, vin },
+  searchParams: { amount, email, name, vin, trackingNumber },
 }: {
   searchParams: { 
     amount: string;
     email: string;
     name: string;
     vin: string;
+    trackingNumber: string;
   };
 }) {
   // Send confirmation email when the success page loads
@@ -33,7 +34,8 @@ export default function PaymentSuccess({
             email,
             name,
             amount: Number(amount),
-            vin
+            vin,
+            trackingNumber
           }),
         });
         
@@ -50,10 +52,10 @@ export default function PaymentSuccess({
       }
     };
 
-    if (email && name && amount && vin) {
+    if (email && name && amount && vin && trackingNumber) {
       sendConfirmationEmail();
     }
-  }, [email, name, amount, vin]);
+  }, [email, name, amount, vin, trackingNumber]);
 
   return (
     <main className="min-h-screen bg-foreground flex flex-col justify-center items-center p-6">
@@ -91,6 +93,14 @@ export default function PaymentSuccess({
             <div className="bg-background rounded-lg p-4">
               <p className="text-textcolor/70 text-sm">Amount paid</p>
               <p className="text-2xl font-bold text-white">${(Number(amount))}</p>
+            </div>
+          </div>
+          
+           {/* Tracking Number */}
+          <div className="bg-gradient-to-r from-primary to-secondary p-[2px] rounded-lg">
+            <div className="bg-background rounded-lg p-4">
+              <p className="text-textcolor/70 text-sm">Tracking Number</p>
+              <p className="text-xl font-bold text-white">{trackingNumber}</p>
             </div>
           </div>
 
