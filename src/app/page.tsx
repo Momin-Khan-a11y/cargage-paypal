@@ -20,8 +20,8 @@ export default function Home() {
 
   return (
     <div className="font-[family-name:var(--font-geist-sans)] bg-foreground">
-      <div className="bg-[url('/svg-bg-strip2.png')] bg-contain bg-blend-color-dodge  pt-6 sm:pt-32">
-        
+      <div className=" bg-[#161616] pt-6 sm:pt-32">
+        {/* bg-[url('/svg-bg-strip2.png')] bg-contain bg-blend-color-dodge */}
       </div>
       <Hero />
       <SearchSec />

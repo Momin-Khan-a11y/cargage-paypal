@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 function Hero() {
     return (
-        <section className='h-screen bg-[url("/hero-bg.png")] bg-cover bg-clip-border bg-center bg-blend-darken w-full overflow-hidden  text-white pt-16'>
+        <section className='h-screen bg-[#161616] bg-[url("/hero-bg1.png")] bg-contain bg-no-repeat bg-clip-border bg-bottom sm:bg-center bg-blend-luminosity w-full overflow-hidden text-white pt-16'>
             <div className="container mx-auto px-4 pb-16">
                 <div className="max-w-3xl mx-auto text-center" data-aos="fade-up">
                     <h1 className="text-3xl md:text-5xl font-bold mb-6">

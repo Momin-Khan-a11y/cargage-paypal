@@ -39,7 +39,7 @@ function SearchSec() {
     return (
         <section id='get-report' className="relative bg-transparent bg-gradient-to-t from-[#202b2a] to-[#1e2726] bg-opacity-90 bg-blend-color-burn">
              {/* bg-[url('/svg-bg-strip.png')] bg-contain */}
-             <div className="p-0  pb-[-3px] mb-[-5px] bg-[url('/svg-bg-strip.png')] bg-contain bg-blend-darken">
+             <div className="p-0  pb-[-3px] mb-[-5px] bg-[url('/svg-bg-strip.png')] bg-[#161616] bg-contain bg-blend-darken">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283.5 27.8" preserveAspectRatio="none"
                     className="rotate-180 p-0">
                     <defs>
