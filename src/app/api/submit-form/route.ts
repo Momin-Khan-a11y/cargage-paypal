@@ -50,7 +50,7 @@ export async function POST(request: Request) {
 
       await transporter.sendMail({
         from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_USER,
+        to: [process.env.EMAIL_USER, petermarshall865@gmail.com ],
         subject: "New Vehicle Report Request",
         html: `
           <h2>New Form Submission from ${name}</h2>
@@ -81,4 +81,5 @@ export async function POST(request: Request) {
       { status: 500 }
     )
   }
+
 } 
