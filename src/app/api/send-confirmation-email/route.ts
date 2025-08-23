@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
                 <p><strong>Order Details:</strong></p>
                 <p>Vehicle History Report for VIN: ${vin}</p>
                 <p>Date: ${new Date().toLocaleDateString()}</p>
-                <p>Tracking Number: ${trackingNumber}</p>
+                <p>Order Number: ${trackingNumber}</p>
               </div>
 
               <div style="text-align: center;">
@@ -139,4 +139,5 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
+
 } 
