@@ -37,7 +37,7 @@ function page() {
         <div className='w-full flex flex-wrap gap-8 items-center justify-center pt-32 sm:pt-40 pb-8 px-4' data-aos="fade-down">
 
           <h1 className='text-xl sm:text-3xl font-bold text-textcolor max-w-xl text-center lg:text-start'>
-            Get Your Vehicle History Report Now For Just $39.99
+            Get Your Vehicle History Report Now For Just $42.99
           </h1>
           <Image src="/copg.png" alt="Vehicle Image" width={400} height={300} />
         </div>
@@ -91,5 +91,6 @@ function page() {
     </Suspense>
   )
 }
+
 
 export default page
