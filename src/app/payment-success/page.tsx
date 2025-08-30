@@ -84,7 +84,7 @@ export default function PaymentSuccess({
               Payment Successful!
             </h1>
             <p className="text-textcolor/80">
-              Thank you for your purchase
+              Thank you for your purchase you will get your report via email with in 30 mins
             </p>
           </div>
 
@@ -122,4 +122,5 @@ export default function PaymentSuccess({
       </div>
     </main>
   );
+
 }
