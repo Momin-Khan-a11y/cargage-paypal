@@ -12,7 +12,7 @@ import { toast } from "sonner"
 import React, { useState } from "react"
 import { useSearchParams, useRouter } from 'next/navigation';
 import PaypalPay from './PaypalPay';
-import { FUNDING, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { Elements, } from "@stripe/react-stripe-js";
 import { v4 as uuidv4 } from 'uuid'
 
 
@@ -39,7 +39,7 @@ const formSchema = z.object({
 export function CheckoutForm() {
   const amount = 39.99; //39.99
   const [isProcessing, setIsProcessing] = useState(false);
-  // const [showPaypal, setShowPaypal] = useState(false);
+  // const [showStripe, setShowStripe] = useState(false);
   const vinParams = useSearchParams();
   const VIN = vinParams.get("vin") || "";
   const router = useRouter();
@@ -104,7 +104,7 @@ export function CheckoutForm() {
   //     }
 
   //     // toast.success("Form submitted successfully");
-  //     setShowPaypal(true); // Show Paypal payment modal
+  //     setShowStripe(true); // Show Stripe payment modal
   //   } catch (error) {
   //     toast.error("Failed to submit form");
   //   } finally {
@@ -143,23 +143,23 @@ export function CheckoutForm() {
     return handleSubmit(onFormValidate)();
   };
 
-  const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "";
-  if (!PAYPAL_CLIENT_ID && PAYPAL_CLIENT_ID == '') {
-    console.error("PayPal Client ID is not set. Please check your environment variables.");
+  const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "";
+  if (!STRIPE_SECRET_KEY && STRIPE_SECRET_KEY == '') {
+    console.error("Stripe Secret Key is not set. Please check your environment variables.");
   }
   
   const initialOptions = {
-    clientId: PAYPAL_CLIENT_ID,
+    clientId: STRIPE_SECRET_KEY,
     currency: "USD",
     intent: "capture",
     components: "buttons",
-    enableFunding: [FUNDING.PAYPAL, FUNDING.CARD],
+    enableFunding: [Payment.Element, CARD.ELEMENT],
     disableFunding: [FUNDING.PAYLATER],
   };
   
 
   return (
-    <PayPalScriptProvider options={initialOptions}>
+    <Elements stripe={stripePromise}>
 
       <div className="min-h-screen bg-foreground py-10 sm:py-20 w-full">
         <div className="container mx-auto px-4 w-full">
@@ -331,10 +331,11 @@ export function CheckoutForm() {
           </Card>
         </div >
       </div >
-    </PayPalScriptProvider >
+    </StripeScriptProvider >
 
   )
 }
+
 
 
 
