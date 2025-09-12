@@ -11,8 +11,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { toast } from "sonner"
 import React, { useState } from "react"
 import { useSearchParams, useRouter } from 'next/navigation';
-import PaypalPay from './PaypalPay';
-import { Elements, } from "@stripe/react-stripe-js";
+import StripePay from './StripePay';
+import { loadStripe } from '@stripe/stripe-js';
 import { v4 as uuidv4 } from 'uuid'
 
 
@@ -335,6 +335,7 @@ export function CheckoutForm() {
 
   )
 }
+
 
 
 
