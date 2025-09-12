@@ -310,7 +310,7 @@ export function CheckoutForm() {
                     {isProcessing && (
                       <div className="text-center text-primary font-medium mb-4">Processing payment and saving details...</div>
                     )}
-                    <PaypalPay
+                    <StripePay
                       amount={amount.toFixed(2).toString()}
                       email={formData.email}
                       FirstName={formData.firstName}
@@ -318,8 +318,8 @@ export function CheckoutForm() {
                       zipCode={formData.postalCode}
                       vin={formData.vin}
                       onSuccess={handlePaymentSuccess}
-                      // onFormSubmit={handleFormSubmitForPaypal} // This will trigger form validation before PayPal
-                      disabled={!isValid || isProcessing} // PayPal button disabled until form is valid and terms accepted
+                      // onFormSubmit={handleFormSubmitForPaypal} // This will trigger form validation before Stripe
+                      disabled={!isValid || isProcessing} // Stripe button disabled until form is valid and terms accepted
                     />
                   </div>
 
@@ -335,6 +335,7 @@ export function CheckoutForm() {
 
   )
 }
+
 
 
 
