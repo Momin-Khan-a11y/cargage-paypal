@@ -139,11 +139,11 @@ export function CheckoutForm() {
     }
   };
 
-  const handleFormSubmitForPaypal = async () => {
+  const handleFormSubmitForStripe = async () => {
     return handleSubmit(onFormValidate)();
   };
 
-  const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "";
+  const STRIPE_SECRET_KEY = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "";
   if (!STRIPE_SECRET_KEY && STRIPE_SECRET_KEY == '') {
     console.error("Stripe Secret Key is not set. Please check your environment variables.");
   }
@@ -335,6 +335,7 @@ export function CheckoutForm() {
 
   )
 }
+
 
 
 
