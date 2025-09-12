@@ -86,7 +86,7 @@ export default function StripePay({ amount, email, FirstName, LastName, vin, dis
                         Processing Order... Please wait.
                     </div>
                 )}
-                <StripePayment
+                <StripePay
                     disabled={disabled || isProcessing}
                     createOrder={handleCreateOrder}
                     onApprove={handleApprove}
@@ -100,6 +100,7 @@ export default function StripePay({ amount, email, FirstName, LastName, vin, dis
         </div>
     );
 }
+
 
 
 
