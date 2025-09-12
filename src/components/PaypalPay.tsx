@@ -1,9 +1,9 @@
 'use client'
 import React, { useRef, useState } from 'react';
-import { Elements, CardElement } from "@stripe/react-stripe-js";
+import { PayPalButtons } from "@paypal/react-paypal-js";
 import { toast } from "sonner";
 
-interface StripePayProps {
+interface PayPalPayProps {
     amount: string;
     email: string;
     FirstName: string;
@@ -14,7 +14,7 @@ interface StripePayProps {
     onSuccess: (details: any) => void;
 }
 
-export default function StripePay({ amount, email, FirstName, LastName, vin, disabled, zipCode, onSuccess }: StripePayProps) {
+export default function PaypalPay({ amount, email, FirstName, LastName, vin, disabled, zipCode, onSuccess }: PaypalPayProps) {
     const [isProcessing, setIsProcessing] = useState(false);
 
     const handleApprove = async (data: any, actions: any) => {
@@ -86,7 +86,7 @@ export default function StripePay({ amount, email, FirstName, LastName, vin, dis
                         Processing Order... Please wait.
                     </div>
                 )}
-                <StripePay
+                <PaypalPay
                     disabled={disabled || isProcessing}
                     createOrder={handleCreateOrder}
                     onApprove={handleApprove}
@@ -100,6 +100,7 @@ export default function StripePay({ amount, email, FirstName, LastName, vin, dis
         </div>
     );
 }
+
 
 
 
