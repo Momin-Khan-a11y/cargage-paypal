@@ -104,7 +104,7 @@ export function CheckoutForm() {
   //     }
 
   //     // toast.success("Form submitted successfully");
-  //     setShowStripe(true); // Show Stripe payment modal
+  //     setShowPaypal(true); // Show Paypal payment modal
   //   } catch (error) {
   //     toast.error("Failed to submit form");
   //   } finally {
@@ -139,11 +139,11 @@ export function CheckoutForm() {
     }
   };
 
-  const handleFormSubmitForStripe = async () => {
+  const handleFormSubmitForPaypal = async () => {
     return handleSubmit(onFormValidate)();
   };
 
-  const STRIPE_SECRET_KEY = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "";
+  const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "";
   if (!PAYPAL_CLIENT_ID && PAYPAL_CLIENT_ID == '') {
     console.error("PayPal Client ID is not set. Please check your environment variables.");
   }
@@ -335,6 +335,7 @@ export function CheckoutForm() {
 
   )
 }
+
 
 
 
