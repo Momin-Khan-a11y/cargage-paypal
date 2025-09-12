@@ -11,8 +11,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { toast } from "sonner"
 import React, { useState } from "react"
 import { useSearchParams, useRouter } from 'next/navigation';
-import StripePay from './StripePay';
-import { loadStripe } from '@stripe/stripe-js';
+import PaypalPay from './PaypalPay';
+import { FUNDING, PaypalScriptProvider } from '@paypal/react-paypal-js';
 import { v4 as uuidv4 } from 'uuid'
 
 
@@ -143,23 +143,23 @@ export function CheckoutForm() {
     return handleSubmit(onFormValidate)();
   };
 
-  const STRIPE_SECRET_KEY = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "";
-  if (!STRIPE_SECRET_KEY && STRIPE_SECRET_KEY == '') {
-    console.error("Stripe Secret Key is not set. Please check your environment variables.");
+  const STRIPE_SECRET_KEY = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "";
+  if (!PAYPAL_CLIENT_ID && PAYPAL_CLIENT_ID == '') {
+    console.error("PayPal Client ID is not set. Please check your environment variables.");
   }
   
   const initialOptions = {
-    clientId: STRIPE_SECRET_KEY,
+    clientId: PAYPAL_CLIENT_ID,
     currency: "USD",
     intent: "capture",
     components: "buttons",
-    enableFunding: [Payment.Element, CARD.ELEMENT],
+    enableFunding: [FUNDING.PAYPAL, FUNDING.CARD],
     disableFunding: [FUNDING.PAYLATER],
   };
   
 
   return (
-    <Elements stripe={stripePromise}>
+    <PayPalScriptProvider options={initialOptions}>
 
       <div className="min-h-screen bg-foreground py-10 sm:py-20 w-full">
         <div className="container mx-auto px-4 w-full">
@@ -310,7 +310,7 @@ export function CheckoutForm() {
                     {isProcessing && (
                       <div className="text-center text-primary font-medium mb-4">Processing payment and saving details...</div>
                     )}
-                    <StripePay
+                    <PayPalPay
                       amount={amount.toFixed(2).toString()}
                       email={formData.email}
                       FirstName={formData.firstName}
@@ -318,8 +318,8 @@ export function CheckoutForm() {
                       zipCode={formData.postalCode}
                       vin={formData.vin}
                       onSuccess={handlePaymentSuccess}
-                      // onFormSubmit={handleFormSubmitForPaypal} // This will trigger form validation before Stripe
-                      disabled={!isValid || isProcessing} // Stripe button disabled until form is valid and terms accepted
+                      // onFormSubmit={handleFormSubmitForPaypal} // This will trigger form validation before PayPal
+                      disabled={!isValid || isProcessing} // Paypal button disabled until form is valid and terms accepted
                     />
                   </div>
 
@@ -331,10 +331,11 @@ export function CheckoutForm() {
           </Card>
         </div >
       </div >
-    </StripeScriptProvider >
+    </PaypalScriptProvider >
 
   )
 }
+
 
 
 
