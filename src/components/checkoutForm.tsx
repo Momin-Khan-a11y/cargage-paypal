@@ -39,7 +39,7 @@ const formSchema = z.object({
 export function CheckoutForm() {
   const amount = 39.99; //39.99
   const [isProcessing, setIsProcessing] = useState(false);
-  // const [showStripe, setShowStripe] = useState(false);
+  // const [showPaypal, setShowPaypal] = useState(false);
   const vinParams = useSearchParams();
   const VIN = vinParams.get("vin") || "";
   const router = useRouter();
@@ -335,6 +335,7 @@ export function CheckoutForm() {
 
   )
 }
+
 
 
 
